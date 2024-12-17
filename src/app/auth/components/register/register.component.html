@@ -1,1 +1,96 @@
-<p>register works!</p>
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+    <div class="flex flex-column align-items-center justify-content-center">
+      <div style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%);">
+        <!-- Formulario de registro con el mismo diseño y centrado -->
+        <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius:53px">
+          
+          <!-- Título y subtítulo -->
+          <div class="text-center mb-5">
+            <img src="assets/demo/images/login/avatar.png" alt="Imagen de avatar" height="50" class="mb-3">
+            <div class="text-900 text-3xl font-medium mb-3">¡Bienvenido!</div>
+            <span class="text-600 font-medium">Crea una cuenta para continuar</span>
+          </div>
+  
+          <!-- Formulario Reactivo -->
+          <form [formGroup]="registerForm">
+            
+            <!-- Nombre -->
+            <label for="name1" class="block text-900 text-xl font-medium mb-2">Nombre</label>
+            <input 
+              id="name1" 
+              type="text" 
+              formControlName="name" 
+              placeholder="Nombre completo" 
+              pInputText 
+              class="w-full md:w-30rem mb-5" 
+              style="padding:1rem">
+            <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="text-red-500 text-sm">
+              Ingresa un nombre válido.
+            </div>
+  
+            <!-- Correo Electrónico -->
+            <label for="email2" class="block text-900 text-xl font-medium mb-2">Correo Electrónico</label>
+            <input 
+              id="email2" 
+              type="email" 
+              formControlName="email" 
+              placeholder="Dirección de correo electrónico" 
+              pInputText 
+              class="w-full md:w-30rem mb-5" 
+              style="padding:1rem">
+            <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-red-500 text-sm">
+              Ingresa un correo válido.
+            </div>
+  
+            <!-- Contraseña -->
+            <label for="password2" class="block text-900 font-medium text-xl mb-2">Contraseña</label>
+            <input 
+              id="password2" 
+              type="password" 
+              formControlName="password" 
+              placeholder="Contraseña" 
+              pInputText 
+              class="w-full md:w-30rem mb-5" 
+              style="padding:1rem">
+            <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-red-500 text-sm">
+              La contraseña debe tener al menos 6 caracteres.
+            </div>
+  
+            <!-- Teléfono -->
+            <label for="telefono" class="block text-900 text-xl font-medium mb-2">Teléfono</label>
+            <input 
+              id="telefono" 
+              type="text" 
+              formControlName="telefono" 
+              placeholder="Teléfono Celular" 
+              pInputText 
+              class="w-full md:w-30rem mb-5" 
+              style="padding:1rem">
+            <div *ngIf="registerForm.get('telefono')?.invalid && registerForm.get('telefono')?.touched" class="text-red-500 text-sm">
+              Ingresa un teléfono válido.
+            </div>
+  
+            <!-- Botón de Registro -->
+            <button 
+              pButton 
+              pRipple 
+              label="Registrar" 
+              class="w-full p-3 text-xl" 
+              [disabled]="!registerForm.valid" 
+              type="button"
+              (click)="funRegistrar()">
+            </button>
+            <div class="flex align-items-center justify-content-between mb-5 gap-5">                       
+                <a 
+                class="font-medium no-underline ml-2 text-right cursor-pointer" 
+                style="color: var(--primary-color)" 
+                [routerLink]="['/auth/login']">
+                ¿Ya tienes Cuenta? Inicia Sesión
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

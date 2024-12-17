@@ -7,6 +7,9 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DropdownModule } from 'primeng/dropdown';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';  // Importa FormsModule
+
 
 const PrimengModules=[
   ButtonModule,
@@ -15,7 +18,9 @@ const PrimengModules=[
   DialogModule,
   InputTextModule,
   ToolbarModule,
-  DropdownModule
+  DropdownModule,
+  ReactiveFormsModule,
+  FormsModule
 ]
 
 @NgModule({
